@@ -4,7 +4,7 @@ body {
     background-color: #e6dcc9;
     display: flex;
 }
- 
+
 /* MENU LATERAL */
 .menu {
     width: 220px;
@@ -13,11 +13,11 @@ body {
     padding: 20px;
     box-sizing: border-box;
 }
- 
+
 .menu h2 {
     text-align: center;
 }
- 
+
 .menu button {
     width: 100%;
     padding: 12px;
@@ -29,28 +29,28 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
- 
+
 .menu button:hover {
     background-color: #5c7c37;
 }
- 
+
 /* ÁREA PRINCIPAL */
 .conteudo {
     flex: 1;
     padding: 30px;
 }
- 
+
 /* TOPO */
 .topo {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
- 
+
 .topo h1 {
     margin: 0;
 }
- 
+
 /* BARRA DE PESQUISA */
 .pesquisa input {
     padding: 10px;
@@ -58,16 +58,15 @@ body {
     border-radius: 20px;
     border: 1px solid #999;
 }
- 
-/* GRID DE LIVROS */
+
+/* GRID DE LIVROS (MOBILE FIRST) */
 .lista-livros {
     margin-top: 25px;
- 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    grid-template-columns: 1fr; /* 1 coluna no celular */
+    gap: 20px;
 }
- 
+
 /* CARD */
 .livro {
     background-color: #f4f1e8;
@@ -76,15 +75,14 @@ body {
     text-align: center;
     box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
 }
- 
-/* IMAGEM */
+
+/* IMAGEM RESPONSIVA */
 .livro img {
-    width: 120px;
-    height: 170px;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
 }
- 
+
 /* STATUS */
 .status {
     background-color: #cfe3b0;
@@ -93,7 +91,7 @@ body {
     margin: 10px 0;
     display: inline-block;
 }
- 
+
 /* BOTÃO */
 .botao {
     background-color: #6f9444;
@@ -103,8 +101,39 @@ body {
     border-radius: 12px;
     cursor: pointer;
 }
- 
+
 .botao:hover {
     background-color: #5c7c37;
 }
- 
+
+/* Tablet: 2 colunas */
+@media (min-width: 600px) {
+    .lista-livros {
+        grid-template-columns: repeat(2, 1fr);  /*  Duas colunas de largura 
+        iguais */
+    }
+}
+
+/* Desktop: 3 colunas */
+@media (min-width: 900px) {
+    .lista-livros {
+        grid-template-columns: repeat(3, 1fr);  /* Três colunas de largura 
+        iguais */
+    }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+        height: auto;
+    }
+
+    .pesquisa input {
+        width: 100%;
+    }
+}
